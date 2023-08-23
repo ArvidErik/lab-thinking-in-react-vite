@@ -1,4 +1,6 @@
 import ProductRow from "./ProductRow";
+import "../styles/SearchBar.css"
+
 
 function ProductsTable (props) {
     return (
@@ -8,11 +10,12 @@ function ProductsTable (props) {
                 <th>Name</th>
                 <th>Price</th>
                 <th>Category</th>
+                <th>inStock</th>
             </thead>
 
             <tbody>
-                {props.data.map((product)=>{
-                    return <ProductRow data={product}/>
+                {props.data.map((product, i)=>{
+                    return <ProductRow data={product} key={i}/>
                 })}
 
             </tbody>

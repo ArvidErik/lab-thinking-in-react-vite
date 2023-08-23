@@ -25,12 +25,25 @@ function ProductsPage () {
         }
     }
 
+    function isInStock(isChecked) {
+        let newArr = [...searchFoods]
 
+        if (isChecked) {
+            newArr = [... searchFoods].filter((product)=>{
+            return product.inStock
+        })   
+        }
+
+        setProducts(newArr)
+
+        }
+        
+        
     return (
 
     <div>
       <h1>IronStore</h1>
-      <SearchBar filter={filter}/>
+      <SearchBar filter={filter} stock={isInStock}/>
       <ProductsTable data={products}/>
     </div>
 
